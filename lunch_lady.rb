@@ -7,16 +7,18 @@ class Menu
     @foods = foods #hash
   end
 
+# outputs display values from class
   def display
     puts "--- #{@name} ---"
     i = 1
     @foods.each do |food, info|
         puts "#{i}) #{food}: $#{info[0]} - #{info[1]} cals."
         i += 1
-    end
+  end
   end
 end
 
+# Stored hashes
 main_menu = {
   "Burger": [1.80, 200],
   "Taco": [1.00, 150],
@@ -35,10 +37,11 @@ def display_total
 
 end
 
-
+# Sends specific menu objects to the Menu class
 main = Menu.new("Main Menu", main_menu)
 side = Menu.new("Side Dishes", side_dish)
 
+# Pulls
 puts "--- Welcome to my restaurant ---"
 main.display
 main_selection = gets.strip.downcase
@@ -48,11 +51,15 @@ side.display
 side1_selection = gets.strip.downcase
 side2_selection = gets.strip.downcase
 
-# Tell users what they order and how much it costs (Concatenation)
+
+# Tell users what they ordered and how much it costs (Concatenation)
+puts "You ordered:"
+puts main_selection
+puts "#{side1_selection} & #{side2_selection}"
 
 # Add totals together of what they ordered
-
-
+total = hash[:main_selection] + hash[:side1_selection] + hash[:side2_selection]
+puts total
 
 #  # user chooses from a list of main dishes
 #  main_dishes = {1=>'Taco', 2=>'Burrito', 3=>'Burger'}
